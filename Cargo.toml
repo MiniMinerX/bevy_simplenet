@@ -67,16 +67,22 @@ rand          = { version = "0.8", optional = true }
 tokio         = { version = "1.29", optional = true, features = ["sync"] }
 
 [dependencies.ezsockets]
-version          = "0.6.4"
+# version          = "0.6.4"
+git = "https://github.com/MiniMinerX/ezsockets.git"
+branch ="custom_websocket"
 default-features = false
 
 [target.'cfg(not(target_family = "wasm"))'.dependencies.ezsockets]
-version          = "0.6.4"
+# version          = "0.6.4"
+git = "https://github.com/MiniMinerX/ezsockets.git"
+branch ="custom_websocket"
 default-features = false
 features         = [ "native_client" ]  #todo: how to configure target on 'client' feature?
 
 [target.'cfg(target_family = "wasm")'.dependencies.ezsockets]
-version          = "0.6.4"
+# version          = "0.6.4"
+git = "https://github.com/MiniMinerX/ezsockets.git"
+branch ="custom_websocket"
 default-features = false
 features         = [ "wasm_client" ]  #todo: how to configure target on 'client' feature?
 
