@@ -1,8 +1,8 @@
 //local shortcuts
 use crate::*;
 
-//third-party shortcuts
 use bincode::Options;
+//third-party shortcuts
 use enfync::{Handle, TryAdopt};
 
 //standard shortcuts

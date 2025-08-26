@@ -1,8 +1,9 @@
+use bincode::{DefaultOptions, Options};
+
 //local shortcuts
 use crate::*;
 
 //third-party shortcuts
-use bincode::Options;
 
 //standard shortcuts
 use std::sync::Arc;
@@ -132,7 +133,7 @@ impl<Channel: ChannelPack> ezsockets::SessionExt for SessionHandler<Channel>
             tracing::trace!("received client message that's too large, closing session...");
             self.close("message size violation"); return Ok(());
         }
-        let Ok(message) = bincode::DefaultOptions::new().deserialize(&bytes[..])
+        let Ok(message) = DefaultOptions::new().deserialize(&bytes[..])
         else
         {
             tracing::trace!("received client message that failed to deserialize, closing session...");
